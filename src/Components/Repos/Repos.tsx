@@ -17,17 +17,74 @@ export const HomePageWrapper = styled.div`
 
 }
 
-
-
   }
 
 `;
 
 
-
+let programmingLanguages = [
+    'JavaScript',
+    'Python',
+    'Java',
+    'C++',
+    'C#',
+    'Ruby',
+    'Go',
+    'TypeScript',
+    'Swift',
+    'Kotlin',
+    'Rust',
+    'PHP',
+    'HTML',
+    'CSS',
+    'Shell',
+    'Objective-C',
+    'Scala',
+    'Perl',
+    'R',
+    'Matlab',
+    'Groovy',
+    'Lua',
+    'Haskell',
+    'Julia',
+    'PowerShell',
+    'Elixir',
+    'Dart',
+    'VB.NET',
+    'Clojure',
+    'F#',
+    'Fortran',
+    'Assembly',
+    'PL/SQL',
+    'Scratch',
+    'Ada',
+    'Racket',
+    'LabVIEW',
+    'COBOL',
+    'Prolog',
+    'Lisp',
+    'Scheme',
+    'Verilog',
+    'RPG',
+    'ABAP',
+    'Tcl',
+    'Logo',
+    'Delphi',
+    'VHDL',
+    'Alice',
+    'Erlang',
+    'Groovy',
+    'Julia',
+    'OCaml',
+    'Q#',
+    'Smalltalk',
+    'Visual Basic'
+  ];
 export const Repos = () => {
     const[repositories,setRepositories]=useState([])
     const[language,setLanguage]=useState('any')
+    const[progamming,setProgramming]=useState(programmingLanguages)
+    const[input,setInput]=useState('')
     const[time,setTime]=useState('daily')
     const getTrendingRepositories =  async () => {
         const now=new Date()
@@ -53,7 +110,8 @@ export const Repos = () => {
     };
     useEffect(()=>{
         getTrendingRepositories()
-        console.log(repositories)
+
+        setProgramming(programmingLanguages)
     
     },[language,time])
     return (
@@ -75,10 +133,26 @@ export const Repos = () => {
 
 
 <div className="dropdown-toggle "data-bs-toggle="dropdown" aria-expanded="false">Language:<b className="color-fg-muted">{language}</b></div>
-<ul className="dropdown-menu">
-    <li><p className="dropdown-item" onClick={()=>{setLanguage('javascript')}}>javascript</p></li>
-    <li><p className="dropdown-item" >python</p></li>
-    <li><p className="dropdown-item" >java</p></li>
+<ul className="dropdown-menu" >
+
+    <input className="form-control" onChange={(event)=>{
+        const result=programmingLanguages.filter(each=>each.includes(event.target.value))
+        setProgramming(result)
+    }}></input>
+    <li><p className="dropdown-item" onClick={()=>{setLanguage('any')}}>Clear</p></li>
+    <ul style={{overflowY:"scroll",overflowX:"hidden",height:"200px",listStyle:"none"}}>
+    {progamming.filter(every=>every.includes(input)).map(each=>{
+    return(
+        <>
+     
+<li><p className="dropdown-item" onClick={()=>{setLanguage(each)}}>{each}</p></li>
+    </>
+    )
+
+})}
+    </ul>
+
+
   </ul>
               
 <div className="dropdown-toggle "data-bs-toggle="dropdown" aria-expanded="false">Date Range:<b className="color-fg-muted">{time}</b></div>
@@ -87,8 +161,7 @@ export const Repos = () => {
     <li><p className="dropdown-item" onClick={()=>{setTime('weekly')}}>This week</p></li>
     <li><p className="dropdown-item"onClick={()=>{setTime('monthly')}} >This month</p></li>
   </ul>
-                    </div>
-                    
+                    </div>  
                 </div>
                 {repositories.map((each:any)=>(
 
