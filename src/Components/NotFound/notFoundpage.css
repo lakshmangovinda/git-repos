@@ -1,0 +1,38 @@
+
+
+
+.page_404{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.link_404{
+    background-color: rgb(77, 174, 77);
+    width: 10vw;
+}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 500px;
+    width: 70vw;
+    background-position: center;
+ }
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
