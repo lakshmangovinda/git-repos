@@ -1,4 +1,4 @@
-1.Download or clone project from github provided link using below options
+1.Download project from github provided link using the below options or  or clone  using git clone HTTPS link from the below ss
 ![image](https://github.com/lakshmangovinda/git-repos/assets/48376205/0f5882cd-6806-4a37-bed9-6c8d7bd8ee83)
 
 2.after clone,open project folder in vs code,move to the project directory[cd git-repos]
