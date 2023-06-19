@@ -14,7 +14,7 @@ const Login = () => {
         const codeParam = urlParams.get("code")
         console.log(codeParam)
         if (codeParam) {
-            sessionStorage.setItem('code',codeParam)
+            sessionStorage.setItem('code', codeParam)
             getAuthtoken(codeParam)
 
         }
@@ -24,8 +24,8 @@ const Login = () => {
     const getAuthtoken = async (code: string): Promise<void> => {
         const params = "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + code
         console.log(params)
-        const config={
-            headers: {"Access-Control-Allow-Origin": "*"}
+        const config = {
+            headers: { "Access-Control-Allow-Origin": "*" }
         }
         try {
             const response = await axios.get("https://github.com/login/oauth/access_token" + params)
@@ -46,28 +46,26 @@ const Login = () => {
 
         window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID)
 
-
-
     }
 
     return (
         <div className="container">
             <div className="row justify-content-md-center justify-content-lg-center text-center">
-          
-                <div className="col-sm-12 col-xs-12 col-md-6 col-lg-4 d-flex flex-column justify-content-lg-around justify-content-md-around  gap-4  border solid pb-20 ">
-                <div>
-                <h3>Login To Your Account</h3>
-            </div>
 
-            <div className="btn btn-dark" onClick={loginwithGithub}>Github</div>
-            <div>or</div>
-            <div className="btn btn-outline-secondary" >Continue with Email and Password</div>
-            <div><a href="https://github.com/" target="_blank" rel="noreferrer">Neet help? Create Account</a></div>
+                <div className="col-sm-12 col-xs-12 col-md-6 col-lg-4 d-flex flex-column justify-content-lg-around justify-content-md-around  gap-4  border solid pb-20 ">
+                    <div>
+                        <h3>Login To Your Account</h3>
+                    </div>
+
+                    <div className="btn btn-dark" onClick={loginwithGithub}>Github</div>
+                    <div>or</div>
+                    <div className="btn btn-outline-secondary" >Continue with Email and Password</div>
+                    <div><a href="https://github.com/" target="_blank" rel="noreferrer">Neet help? Create Account</a></div>
 
                 </div>
 
             </div>
-           
+
 
         </div>
     );
