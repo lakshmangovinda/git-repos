@@ -59,7 +59,7 @@ const Login = () => {
 
                     <div className="btn btn-dark" onClick={loginwithGithub}>Github</div>
                     <div>or</div>
-                    <div className="btn btn-outline-secondary" >Continue with Email and Password</div>
+                    <div className="btn btn-outline-secondary"  onClick={()=>nav("/gmail")}>Continue with Email and Password</div>
                     <div><a href="https://github.com/" target="_blank" rel="noreferrer">Neet help? Create Account</a></div>
 
                 </div>
